@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toms Teller - Einfach. Klar. Köstlich.</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Toms Teller</div>
+        <div class="tagline">Einfach. Klar. Köstlich.</div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <div class="nav-links">
+                <a href="index.html" class="active">Startseite</a>
+                <a href="#" id="all-recipes-link">Alle Rezepte</a>
+                <a href="#" id="about-link">Über mich</a>
+            </div>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Rezept suchen...">
+                <button id="search-button">Suchen</button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home-content">
+            <h1 class="section-title">Neueste Rezepte</h1>
+            <div id="recipes-grid" class="recipes-grid">
+                <!-- Recipes will be loaded here dynamically -->
+                <div class="loading">Rezepte werden geladen...</div>
+            </div>
+        </section>
+
+        <section id="single-recipe" class="recipe-detail" style="display: none;">
+            <!-- Single recipe will be displayed here -->
+        </section>
+
+        <section id="all-recipes-content" style="display: none;">
+            <h1 class="section-title">Alle Rezepte</h1>
+            <div id="all-recipes-grid" class="recipes-grid">
+                <!-- All recipes will be loaded here -->
+            </div>
+        </section>
+
+        <section id="about-content" style="display: none;">
+            <h1 class="section-title">Über mich</h1>
+            <div class="about-container">
+                <p>Hallo! Ich bin Tom Filipov, leidenschaftlicher Hobbykoch und Genießer. In meiner Küche experimentiere ich mit verschiedenen Zutaten und Techniken, um köstliche Gerichte zu kreieren, die ich hier mit dir teilen möchte.</p>
+                <p>Meine Liebe zum Kochen begann in der Küche meiner Großmutter in Bulgarien, wo ich lernte, dass gutes Essen nicht nur den Magen, sondern auch die Seele nährt. Heute versuche ich, diese Philosophie in meinen eigenen Rezepten weiterzuleben.</p>
+                <p>Auf diesem Blog teile ich meine kulinarischen Abenteuer, von einfachen Alltagsgerichten bis hin zu besonderen Festtagsmenüs. Ich hoffe, dich zu inspirieren, selbst den Kochlöffel zu schwingen und die Freude am Kochen zu entdecken.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="copyright">
+                &copy; 2025 Toms Teller. Alle Rechte vorbehalten.
+            </div>
+            <!-- Hidden admin link -->
+            <div class="hidden-admin">
+                <a href="admin.html" class="admin-link">.</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>

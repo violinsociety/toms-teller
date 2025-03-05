@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Admin - Toms Teller</title>
+        <link rel="stylesheet" href="styles/main.css" />
+    </head>
+    <body>
+        <header>
+            <div class="logo">Toms Teller Admin</div>
+            <div class="tagline">Rezeptverwaltung</div>
+        </header>
+
+        <nav>
+            <div class="nav-container">
+                <div class="nav-links">
+                    <a href="index.html">Zurück zur Website</a>
+                </div>
+            </div>
+        </nav>
+
+        <main>
+            <div class="success-message" id="success-message">
+                Rezept erfolgreich gespeichert!
+            </div>
+            <div class="error-message" id="error-message">
+                Fehler beim Speichern des Rezepts.
+            </div>
+
+            <div class="admin-container">
+                <h1 class="section-title">Neues Rezept hinzufügen</h1>
+
+                <form id="recipe-form" class="admin-form">
+                    <div class="form-group">
+                        <label for="title" class="form-label">Rezeptname</label>
+                        <input
+                            type="text"
+                            id="title"
+                            name="title"
+                            class="form-input"
+                            required
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description" class="form-label"
+                            >Beschreibung</label
+                        >
+                        <textarea
+                            id="description"
+                            name="description"
+                            class="form-textarea"
+                            required
+                        ></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category" class="form-label"
+                            >Kategorie</label
+                        >
+                        <input
+                            type="text"
+                            id="category"
+                            name="category"
+                            class="form-input"
+                            placeholder="z.B. Suppen, Hauptgerichte"
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="image" class="form-label">Bilddatei</label>
+                        <input
+                            type="file"
+                            id="image"
+                            name="image"
+                            accept="image/*"
+                            required
+                        />
+                        <p class="form-help">
+                            Bitte wähle ein Bild aus (JPG oder PNG).
+                        </p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="time" class="form-label"
+                            >Zubereitungszeit (Minuten)</label
+                        >
+                        <input
+                            type="number"
+                            id="time"
+                            name="time"
+                            class="form-input"
+                            min="1"
+                            required
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="difficulty" class="form-label"
+                            >Schwierigkeit</label
+                        >
+                        <select
+                            id="difficulty"
+                            name="difficulty"
+                            class="form-select"
+                        >
+                            <option value="Einfach">Einfach</option>
+                            <option value="Mittel" selected>Mittel</option>
+                            <option value="Anspruchsvoll">Anspruchsvoll</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="servings" class="form-label"
+                            >Portionen</label
+                        >
+                        <input
+                            type="number"
+                            id="servings"
+                            name="servings"
+                            class="form-input"
+                            min="1"
+                            value="4"
+                            required
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Zutaten</label>
+                        <p class="form-help">
+                            Format: Menge Einheit: Name (z.B. "200 g: Mehl" oder
+                            "2: Eier")
+                        </p>
+                        <div
+                            id="ingredients-container"
+                            class="ingredients-container"
+                        >
+                            <div class="list-item">
+                                <input
+                                    type="text"
+                                    class="form-input ingredient-input"
+                                    required
+                                />
+                                <button type="button" class="remove-btn">
+                                    ×
+                                </button>
+                            </div>
+                            <div class="list-item">
+                                <input
+                                    type="text"
+                                    class="form-input ingredient-input"
+                                    required
+                                />
+                                <button type="button" class="remove-btn">
+                                    ×
+                                </button>
+                            </div>
+                        </div>
+                        <button
+                            type="button"
+                            id="add-ingredient"
+                            class="add-item-btn"
+                        >
+                            + Zutat hinzufügen
+                        </button>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Zubereitung</label>
+                        <div
+                            id="instructions-container"
+                            class="instructions-container"
+                        >
+                            <div class="list-item">
+                                <textarea
+                                    class="form-textarea instruction-input"
+                                    required
+                                ></textarea>
+                                <button type="button" class="remove-btn">
+                                    ×
+                                </button>
+                            </div>
+                        </div>
+                        <button
+                            type="button"
+                            id="add-instruction"
+                            class="add-item-btn"
+                        >
+                            + Schritt hinzufügen
+                        </button>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Tipps (optional)</label>
+                        <div id="tips-container" class="tips-container">
+                            <div class="list-item">
+                                <input
+                                    type="text"
+                                    class="form-input tip-input"
+                                />
+                                <button type="button" class="remove-btn">
+                                    ×
+                                </button>
+                            </div>
+                        </div>
+                        <button type="button" id="add-tip" class="add-item-btn">
+                            + Tipp hinzufügen
+                        </button>
+                    </div>
+
+                    <button type="submit" id="submit-recipe" class="submit-btn">
+                        Rezept speichern
+                    </button>
+                </form>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-container">
+                <div class="copyright">
+                    &copy; 2025 Toms Teller - Adminbereich
+                </div>
+            </div>
+        </footer>
+
+        <script src="scripts/admin.js"></script>
+    </body>
+</html>
